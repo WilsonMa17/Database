@@ -1,0 +1,13 @@
+<html>
+
+
+<h1>Update Department:</h1>
+
+<form id="updatedepartment" action="/department" method="put">
+    Department Name: <input type="text" name="departmentName" value="{{departments.departmentName}}"><br>
+    
+</form>
+
+<button onclick="updatedepartment({{departments.departmentID}})">Update</button>
+
+</html>

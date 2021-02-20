@@ -1,0 +1,35 @@
+<html>
+
+<div id="selectText"><a>To create a new department, give it a name:</a></div>
+
+<form id="createDepartmentForm"  action="/departments " method="POST">
+		<div class="createDepartmentFormField">
+			<label for="departmentName">Department Name:</label>
+  		<input type="text" id="departmentName" name="departmentName" value=" ">
+      <input type="submit" value="Create Department">
+    </div>
+  		
+</form>
+
+<div id="selectText"><a>If you wish to remove a department, select the department you wish to remove and click Remove</a></div>
+
+<table class="allTables" id="departmentTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Department Name</th>
+          </tr>
+        </thead>
+        <tbody id="departmentBody">
+          {{#each departments}}
+          <tr>
+            <td>{{departmentID}}</td>
+            <td>{{departmentName}}</td>
+            <td><button><a href="/departments/{{departmentID}}">Update</a></button></td>
+            <td><button onclick="deletedepartment({{departmentID}})">Delete</button></td>
+          </tr>
+          {{/each}}
+          </tbody>
+      </table>
+
+</html>

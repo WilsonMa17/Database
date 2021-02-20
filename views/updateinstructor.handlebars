@@ -1,0 +1,18 @@
+<html>
+
+
+<h1>Update:</h1>
+
+<form id="updateinstructor" action="/instructors" method="post">
+	
+    First name: <input type="text" name="firstName" value="{{instructors.firstName}}"><br>
+    Last name: <input type="text" name="lastName" value="{{instructors.lastName}}"><br>
+    Address: <input type="text"  name="address" value="{{instructors.address}}"><br>
+    Phone:  <input type="tel"  name="phoneNumber" value ={{instructors.phoneNumber}}><br>
+    DOB: <input type="Date"  name="DOB" value="{{instructors.DOB}}"><br>
+    Instrument Taught: <input type="text"  name="instrumentTaught" value="{{instructors.instrumentTaught}}"><br>
+</form>
+
+<button onclick="updateinstructor({{instructors.instructorID}})">Update</button>
+
+</html>

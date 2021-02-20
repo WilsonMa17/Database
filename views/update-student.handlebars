@@ -1,0 +1,14 @@
+<html>
+<h1>Update {{students.firstName}} {{students.lastName}}:</h1>
+<form id="update-student" action="/students" method="post">
+    First Name: <input type="text" name="firstName" value="{{students.firstName}}"><br>
+    Last Name: <input type="text" name="lastName" value="{{students.lastName}}"><br>
+    DOB: <input type="Date" name="DOB" value="{{students.DOB}}"><br>
+    Address: <input type="text" name="address" value="{{students.address}}"><br>
+    Phone Number: <input type="tel" name="phoneNumber" value="{{students.phoneNumber}}"><br>
+    <br>
+    
+</form>
+<button onclick="updateStudent({{students.studentID}})">Update</button>
+
+</html>

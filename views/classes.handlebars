@@ -1,0 +1,91 @@
+
+<html>
+<form id='department_filter' action='' method=''>
+<!--- this form does not submit directly, the button handles all the interaction with backend -->
+    <label> Filter by Department </label>
+    <select id='department_filter' name="department"> 
+        {{#each departments}}
+        <option value="{{departmentID}}">{{departmentName}}</option>
+        {{/each}}
+    </select><br>
+    <td><button onclick="filterClassByDepartment()">Filter</button></td>
+    
+</form></center>
+
+
+<div id="selectText"><a>To create a new class, fill out the following form</a></div>
+
+<form id="createClassForm"  action="/classes " method="post">
+		<div class="createClassFormField">
+			<label for="className">Class Title:</label>
+  			<input type="text" id="className" name="className" value=" ">
+  		</div>
+  		<div class="createClassFormField">
+  			<label for="departmentID">Department:</label>
+  			<select id="departmentSelect" name="departmentID">
+    			{{#each departments}}
+        		<option value="{{departmentID}}">{{departmentName}}</option>
+        		{{/each}}
+  			</select>
+  		</div>
+  		<div class="createClassFormField">
+  			<label for="instructorID">Instructor:</label>
+  			<select id="instructorSelect" name="instructorID">
+				{{#each instructors}}
+        		<option value="{{instructorID}}">({{instructorID}}) {{lastName}}, {{firstName}}</option>
+        		{{/each}}
+  			</select>
+  		</div>
+  		<div class="createClassFormField">
+  			<label for="startDate">Start Date:</label>
+  			<input type="date" id="startDate" name="startDate">
+  		</div>
+  		<div class="createClassFormField">
+  			<label for="endDate">End Date:</label>
+  			<input type="date" id="endDate" name="endDate">
+  		</div>
+  		<div class="createClassFormField">
+  			<label for="meetDays">Meet Days:</label>
+  			<input type="text" id="meetDays" name="meetDays">
+  		</div>
+      <div class="createClassFormField">
+        <label for="meetTime">Meet Time :</label>
+        <input type="time" id="meetTime" name="meetTime">
+      </div>
+  		<div class="createClassFormField">
+  			<input type="submit" value="Create Class">
+  		</div>
+</form>
+
+
+
+<table class="allTables" id="classTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Class Name</th>
+            <th>Department</th>
+            <th>Instructor</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Meet Day(s)</th>
+            <th>Meet Time</th>
+          </tr>
+        </thead>
+        <tbody id="classBody">
+          {{#each classes}}
+          <tr>
+            <td>{{classID}}</td>
+            <td>{{className}}</td>
+            <td>{{departmentID}}</td>
+            <td>{{instructorID}}</td>
+            <td>{{startDate}}</td>
+            <td>{{endDate}}</td>
+            <td>{{meetDays}}</td>
+            <td>{{meetTime}}</td>
+            <td><a href="/classes/{{classID}}">Update</a></td>
+            <td><button onclick="deleteClass({{classID}})">Remove</button></td>
+          </tr>
+          {{/each}}
+    <br/>
+</html>

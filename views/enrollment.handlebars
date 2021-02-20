@@ -1,0 +1,50 @@
+<html>
+
+  <div id="selectText"><a>To enroll a student in a class, use the drop downs below</a></div>
+
+<form id="createClassForm"  action="/enrollment " method="post">
+      <div class="createClassFormField">
+  			<label for="classID">Class:</label>
+  			<select id="classSelect" name="classID">
+				{{#each classes}}
+        		<option value="{{classID}}">({{classID}}) {{className}}</option>
+        		{{/each}}
+  			</select>
+  		</div>
+  		<div class="createClassFormField">
+  			<label for="studentID">Student:</label>
+  			<select id="studentSelect" name="studentID">
+    			{{#each students}}
+        		<option value="{{studentID}}">({{studentID}}){{lastName}}, {{firstName}}</option>
+        		{{/each}}
+  			</select>
+  		</div>  		
+      <div id= "createClassFormField">
+        <input type="submit" value="Enroll">
+      </div>
+</form>
+
+
+    <table class="allTables" id="enrollmentTable">
+        <thead>
+          <tr>
+            <th>Class ID</th>
+            <th>Class Name</th>
+            <th>Student ID</th>
+            <th>Student Last Name</th>
+            <th>Student First Name</th>            
+          </tr>
+        </thead>
+        <tbody id="enrollmentBody">
+          {{#each students_classes}}
+          <tr>
+            <td>{{classID}}</td>
+            <td>{{className}}</td>
+            <td>{{studentID}}</td>
+            <td>{{lastName}}</td>
+            <td>{{firstName}}</td>
+          {{/each}}
+    <br/>
+    </tbody>
+    </table>
+</html>

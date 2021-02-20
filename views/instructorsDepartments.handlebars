@@ -1,0 +1,45 @@
+<html>
+<center>
+<h3> Department by Instructors </h3>
+<table id="instructorTable">
+        <thead>
+
+            <th>Department ID</th>
+            <th>Instructor ID</th>
+        </thead>
+        <tbody>
+            {{#each depInst}}
+          <tr>
+            <td>{{departmentID }}</td>
+            <td>{{instructorID }}</td>    
+          </tr>
+          {{/each}}         
+        </tbody>
+      </table>
+
+
+<form   action="/instructorsDepartments" method="post">
+    <div class="createClassFormField">
+      
+      <div class="createClassFormField">
+        <label for="departmentID">Department:</label>
+        <select id="departmentSelect" name="departmentID">
+          {{#each departments}}
+            <option value="{{departmentID}}">({{departmentID}}) {{departmentName}}</option>
+            {{/each}}
+        </select>
+      </div>
+      <div class="createClassFormField">
+        <label for="instructorID">Instructor:</label>
+        <select id="instructorSelect" name="instructorID">
+        {{#each instructors}}
+            <option value="{{instructorID}}">({{instructorID}}) {{lastName}}, {{firstName}}</option>
+            {{/each}}
+        </select>
+        <div class="createClassFormField">
+        <input type="submit" value="Assign">
+      </div>
+</div></form>
+
+<br/></div></form></center>
+</html>

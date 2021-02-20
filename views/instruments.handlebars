@@ -1,0 +1,45 @@
+<html>
+
+<div id="selectText"><a>To create a new instrument, fill out the following form:</a></div>
+
+<form id="instructorEnrollForm" action="/instruments " method= "post">
+    <div class="enrollFormField">
+      <label for="instrumentname">Instrument name:</label>
+        <input type="text" id="instrumentName" name="instrumentName" value=" ">
+      </div>
+      
+      <div class="enrollFormField">
+        <input type="submit" value="Create">
+      </div>
+</form>
+
+<div id="selectText"><a>If you wish to update an instrument's info, or remove an instrument, select the instrument you wish to update or remove and click Update or Remove</a></div>
+
+
+<table class="allTables" id="instrumentTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            
+            <th>Instrument Name</th>
+            <th>Rented Out(Y/N)</th>
+            <th>Rented Until</th>
+            <th>Student ID</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each instruments}}
+          <tr>
+            <td>{{instrumentID}}</td>
+            <td>{{instrumentName}}</td>
+            <td>{{rentedOut}}</td>
+            <td>{{rentedUntil}}</td>
+            <td>{{studentID }}</td>
+            <td><button><a href="/instruments/{{instrumentID}}">Update</a></button></td>
+           <td><button onclick="deleteinstrument({{instrumentID}})">Delete</button></td>
+          </tr>
+          {{/each}}
+          </tbody>
+      </table>
+
+</html>

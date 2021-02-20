@@ -1,0 +1,61 @@
+
+<html>
+
+	
+<div id="selectText"><a>To enroll a new student, fill out the following form</a></div>
+
+<form id="createClassForm"  action="/students" method="post">
+		<div class="createClassFormField">
+			<label for="firstName">First Name:</label>
+  			<input type="text" id="firstName" name="firstName" value=" ">
+  		</div>
+      <div class="createClassFormField">
+      <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="lastName" value=" ">
+      </div>
+  		<div class="createClassFormField">
+        <label for="DOB">Date of Birth:</label>
+        <input type="Date" id="DOB" name="DOB" value=" ">
+      </div>
+  		<div class="createClassFormField">
+        <label for="address">Address:</label>
+        <input type="text" id="address" name="address" placeholder="Address, City, State, Zip">
+      </div>
+  		<div class="createClassFormField">
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="555-555-5555">
+      </div>
+      
+  		<div class="createClassFormField">
+  			<input type="submit" value="Create Student">
+  		</div>
+</form>
+
+<table class="allTables" id="studentTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Date of Birth</th>
+            <th>Address</th>
+            <th>phoneNumber</th>     
+         </tr>
+        </thead>
+        <tbody id="studentBody">
+          {{#each students}}
+          <tr>
+            <td>{{studentID}}</td>
+            <td>{{firstName}}</td>
+            <td>{{lastName}}</td>
+            <td>{{DOB}}</td>
+            <td>{{address}}</td>
+            <td>{{phoneNumber}}</td>
+            <td><a href="/students/{{studentID}}">Update</a></td>
+            <td><button onclick="deleteStudent({{studentID}})">Remove</button></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+<br/>
+</html>

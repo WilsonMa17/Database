@@ -1,0 +1,22 @@
+<html>
+
+
+<h1>Update:</h1>
+
+<form id="updateinstrument" action="/instruments" method="put">
+    Instrument Name: <input type="text" name="instrumentName" value="{{instruments.instrumentName}}"><br>
+    Rented Out(Y/N): <input type="text" name="rentedOut" value="{{instruments.rentedOut}}"><br>
+    Rented Until: <input type="text"  name="rentedUntil" value="{{instruments.rentedUntil}}"><br>
+    
+    
+    <label for="studentID">Student ID:</label>
+        <select id="studentSelect" name="studentID">
+        {{#each students}}
+            <option value="{{studentID}}">({{studentID}}) {{lastName}}, {{firstName}}</option>
+            {{/each}}
+        </select>
+</form>
+
+<button onclick="updateinstrument({{instruments.instrumentID}})">Update</button>
+
+</html>

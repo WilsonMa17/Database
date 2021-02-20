@@ -1,0 +1,28 @@
+<html>
+<h1>Update {{classes.className}} :</h1>
+<form id="update-class" action="/classes" method="put">
+    Class Name: <input type="text" name="className" value="{{classes.className}}"><br>
+    Department: <select name="departmentID" id="department-selector"> 
+        {{#each departments}}
+        <option value="{{departmentID}}">{{departmentName}}</option>
+        {{/each}}
+    </select>
+    <br>
+    Instructor: <select id="instructor-selector" name="instructorID">
+		{{#each instructors}}
+        <option value="{{instructorID}}">({{instructorID}}) {{lastName}}, {{firstName}}</option>
+        {{/each}}
+  	</select>
+    <br>
+    Capacity: <input type="text" name="capacity" value="{{classes.capacity}}"><br>
+    Start Date: <input type="date" name="startDate" value="{{classes.startDate}}"><br>
+    End Date: <input type="date" name="endDate" value="{{classes.endDate}}"><br>
+    Meet Days: <input type="text" name="meetDays" value="{{classes.meetDays}}"><br>
+    Meet Time: <input type="time" name="meetTime" value="{{classes.meetTime}}"><br>
+</form>
+<button onclick="updateClass({{classes.classID}})">Update</button>
+
+<script defer>selectDepartment({{classes.departmentID}});</script>
+<script defer>selectInstructor({{classes.instructorID}});</script>
+
+</html>
